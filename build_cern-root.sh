@@ -4,31 +4,22 @@ BASEDIR=$PWD
 echo "Number of processors: $(nproc)"
 # Get sources
 echo "Getting sources..."
-#export GCC_BUILD_VERSION=4.9.2
-#wget --no-check-certificate http://ftp.gnu.org/gnu/gcc/gcc-$GCC_BUILD_VERSION/gcc-$GCC_BUILD_VERSION.tar.bz2
-echo "Untarring..."
-#tar -xjf gcc-$GCC_BUILD_VERSION.tar.bz2
-#rm gcc-$GCC_BUILD_VERSION.tar.bz2
-#cd gcc-$GCC_BUILD_VERSION/
+git clone -b v5-34-00-patches-A2 --single-branch https://github.com/A2-Collaboration/root root-git
 
 # Build library
-echo "Downloading prerequisites..."
-#./contrib/download_prerequisites
-#mkdir build
-#cd build
 echo "Configuring..."
-#mkdir -p gcc-$GCC_BUILD_VERSION/gcc
-#../configure --enable-languages=c,c++,fortran --disable-multilib --enable-shared --enable-threads=posix --prefix=$(pwd)/gcc-$GCC_BUILD_VERSION/gcc
+mkdir -p $BASEDIR/root
+cd root-git
+./configure --prefix=$BASEDIR/root
 echo "Building..."
 # make really outputs so much that travis aborts,
-# so convert it to dots
-#make -j$(nproc) | awk '{printf "."}'
-#make -j$(nproc) install
+# so convert it to dots (STDERR is still seen)
+make -j$(nproc) | awk '{printf "."}'
+make -j$(nproc) install
 # Tar library
 echo "Build done, tarring..."
-#cd gcc-$GCC_BUILD_VERSION/
-#tar -jc --file=gcc.tar.bz2 gcc
-mv gcc.tar.bz2 $BASEDIR
+cd $BASEDIR
+tar -jc --file=cern-root.tar.bz2 root
 echo "########################################################################"
-echo "Created tarball $BASEDIR/base.tar.bz2 with version $GCC_BUILD_VERSION"
+echo "Created tarball $BASEDIR/cern-root.tar.bz2 with version $GCC_BUILD_VERSION"
 echo "########################################################################"
