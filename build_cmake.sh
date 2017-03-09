@@ -1,4 +1,5 @@
 #!/bin/sh
+if [ -z "$TRAVIS_TAG" ]; then exit 0; fi
 set -e
 BASEDIR=$PWD
 CMAKE_VERSION=3.1.2
