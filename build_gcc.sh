@@ -20,7 +20,9 @@ echo "Configuring..."
 mkdir -p gcc-$GCC_BUILD_VERSION/gcc
 ../configure --enable-languages=c,c++,fortran --disable-multilib --enable-shared --enable-threads=posix --prefix=$(pwd)/gcc-$GCC_BUILD_VERSION/gcc
 echo "Building..."
-make -j$(nproc)
+# make really outputs so much that travis aborts,
+# so convert it to dots
+make -j$(nproc) | awk '{printf "."}'
 make -j$(nproc) install
 # Tar library
 echo "Build done, tarring..."
