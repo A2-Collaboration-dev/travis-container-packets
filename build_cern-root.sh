@@ -21,6 +21,5 @@ make -j2 install
 echo "Build done, tarring..."
 cd $BASEDIR
 tar -jc --file=cern-root.tar.bz2 cern-root
-echo "########################################################################"
-echo "Created tarball $BASEDIR/cern-root.tar.bz2"
-echo "########################################################################"
+echo "Created tarball:"
+ls -lah cern-root.tar.bz2
