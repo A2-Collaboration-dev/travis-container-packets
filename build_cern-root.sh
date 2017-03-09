@@ -8,14 +8,15 @@ git clone -b v5-34-00-patches-A2 --single-branch https://github.com/A2-Collabora
 
 # Build library
 echo "Configuring..."
+mkdir -p $BASEDIR/cern-root-build
 mkdir -p $BASEDIR/cern-root
-cd cern-root
-cmake ../cern-root-git
+cd cern-root-build
+cmake ../cern-root-git -DCMAKE_INSTALL_PREFIX=$BASEDIR/cern-root
 echo "Building..."
 # make really outputs so much that travis aborts,
 # so convert it to dots (STDERR is still seen)
-make # | awk '{printf "."}'
-#make -j$(nproc) install
+make -j$(nproc) # | awk '{printf "."}'
+make -j$(nproc) install
 # Tar library
 echo "Build done, tarring..."
 cd $BASEDIR
