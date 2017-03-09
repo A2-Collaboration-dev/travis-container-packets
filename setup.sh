@@ -8,4 +8,4 @@ rm gcc.tar.bz2
 export PATH=$(pwd)/gcc/bin:$PATH
 export LIBRARY_PATH=$(pwd)/gcc/lib64:$LIBRARY_PATH
 export LD_LIBRARY_PATH=$(pwd)/gcc/lib64:$LD_LIBRARY_PATH
-export CPLUS_INCLUDE_PATH=$(pwd)/gcc/include/c++/4.8.2:$CPLUS_INCLUDE_PATH
+export CPLUS_INCLUDE_PATH=$(pwd)/gcc/include/c++/4.9.2:$CPLUS_INCLUDE_PATH
