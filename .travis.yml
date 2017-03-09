@@ -1,25 +1,27 @@
 language: cpp
 sudo: false
 compiler:
-  - gcc
+- gcc
 before_install:
-  # Get GCC 4.9.2
-  - if [ "$CXX" == "g++" ]; then wget https://github.com/A2-Collaboration-dev/travis-container-packets/releases/download/gcc-4.9.2/gcc.tar.bz2; fi
-  - if [ "$CXX" == "g++" ]; then tar -xjf gcc.tar.bz2; fi
-  - if [ "$CXX" == "g++" ]; then rm gcc.tar.bz2; fi
-  - if [ "$CXX" == "g++" ]; then export PATH=$(pwd)/gcc/bin:$PATH; fi
-  - if [ "$CXX" == "g++" ]; then export LIBRARY_PATH=$(pwd)/gcc/lib64:$LIBRARY_PATH; fi
-  - if [ "$CXX" == "g++" ]; then export LD_LIBRARY_PATH=$(pwd)/gcc/lib64:$LD_LIBRARY_PATH; fi
-  - if [ "$CXX" == "g++" ]; then export CPLUS_INCLUDE_PATH=$(pwd)/gcc/include/c++/4.9.2:$CPLUS_INCLUDE_PATH; fi
-  # Get CMake 3.1
-  - wget https://github.com/A2-Collaboration-dev/travis-container-packets/releases/download/cmake-3.1.2/cmake.tar.bz2
-  - tar -xjf cmake.tar.bz2
-  - rm cmake.tar.bz2
-  - export PATH=$(pwd)/cmake/bin:$PATH
+- if [ "$CXX" == "g++" ]; then wget https://github.com/A2-Collaboration-dev/travis-container-packets/releases/download/gcc-4.9.2/gcc.tar.bz2;
+  fi
+- if [ "$CXX" == "g++" ]; then tar -xjf gcc.tar.bz2; fi
+- if [ "$CXX" == "g++" ]; then rm gcc.tar.bz2; fi
+- if [ "$CXX" == "g++" ]; then export PATH=$(pwd)/gcc/bin:$PATH; fi
+- if [ "$CXX" == "g++" ]; then export LIBRARY_PATH=$(pwd)/gcc/lib64:$LIBRARY_PATH;
+  fi
+- if [ "$CXX" == "g++" ]; then export LD_LIBRARY_PATH=$(pwd)/gcc/lib64:$LD_LIBRARY_PATH;
+  fi
+- if [ "$CXX" == "g++" ]; then export CPLUS_INCLUDE_PATH=$(pwd)/gcc/include/c++/4.9.2:$CPLUS_INCLUDE_PATH;
+  fi
+- wget https://github.com/A2-Collaboration-dev/travis-container-packets/releases/download/cmake-3.1.2/cmake.tar.bz2
+- tar -xjf cmake.tar.bz2
+- rm cmake.tar.bz2
+- export PATH=$(pwd)/cmake/bin:$PATH
 script: "./build_cern-root.sh"
 addons:
   apt:
-    packages:  
+    packages:
     - liblzma-dev
     - libgsl0-dev
     - libx11-dev
@@ -27,13 +29,13 @@ addons:
     - libxft-dev
     - libxext-dev
 os:
-  - linux
-#deploy:
-#  provider: releases
-#  api_key:
-#    secure: rrd4GZr6JtIotyf01/q/o3HA9sOoLcmAOEd4Hh8kTrQh2ifl0oCNnWm59YYd3Pu2a7BIb4K81MsJS4Qi0TlkWAPBzndfot/c5U5QlY43mOBhrMMWW1hr6CHDEyMZicND+zKrdBL/AUpop/GPW+OCUOrJz8W3F5kfxs95kELlyBJtRXv7qsYMsxboEhFMeYtAXYJ0XQL9vxfTb5gA4K84isETI7RSPuddAIwRYoqG6Zvn1VdEYCjX2Lgn215n46ktZ7CYRnBa4KJwVsHox0f4pbG0G2rG2gHKerIX/JSuGsTYurb41K2jrazIAig70EClT/EpOqB5IqNxOY99WRg8LtMMe5T9lNzNIpiFYh9kP+f5QCoj7SrKp0PpV2BycJ0U5wdXNQK2wk3XqgjfU/ZlyGzX3UF0fymZec3eAaX0922vQDJXMcj97/PbmdHpN6Am5c5kDK5bZeZJiF9nRSybYgx0NBAHE29epOYa3fkvDx/NQlxVuLaBCh93kx6X6vcRIkGi2RxBZTkFicCCjWq85F1YBxM5xy6m7Gb4+rmQMbNdp1clejmiQ0WswlRatW8Fy5pYmfWM4WfwlbOaj0GU8tSzq2/C8XCOXol3uoh2G2blvrsasg8S3cMcrPECuVL5Bnv/NFDCVn+9BfzaLnU3nVnQunDqM8ZCc7mSl4sUxg8=
-#  file: cern-root.tar.bz2
-#  skip_cleanup: true
-#  overwrite: true
-#  on:
-#    tags: true
+- linux
+deploy:
+  provider: releases
+  api_key:
+    secure: QqxgAsH11PiVNNG/2/p7HRcGO7c9t4aILdO0D/zySG5Auw5AGGSgWFwXwtn9n9QSXhea2YRJuJLB7NyDIaCjC0R+ZGvsOGKnxojP9Us5z4kMlh3pCWRIpHdZrSF1mof0/NDB3wubG//cI7VCyjPqYzD8qUwGIpC8IFan7cOD4VS1dJE708hR2hxn2k5R0If8dy5J6+vENJazY3BUhVU+0WN4UgBNd99Saqx0V3pA41fJj7OVmnlMk07VibTWLfvKKN8lWDfXupm/mO1WHmOjGt3L2/eZ2HGleJryKbtZTFkX0tc2IzVNJhOziqcicSOf+tT7qDJbrWXpGpERMEsSqt7zm0i7Nicgj5ix2GdGcV6FlmZ2rYvf/QTdApnP7zF1Zrmi3WS/ZcGo3Ayrmgy7wNF7/ExPJF/U2VbnpMahU/aISjqisnr7l+RNLfkxC9GYhS4nUbuXkPDWW2T9saX3KKw2wbteP+3RIUazF2cmK84s1qOb6HWHJK8ioOq3ueiclpdPTQE+G7UH2doCFeStAGeRm/ryIAeoa/+1n8pRWS7snSYpd/zmsAkND80bUpdyw/Q7qrURE+V5uzRowE0w1P/1zmpCInTkSWKddeTfrzU9Sk+MOwoClqyi2hmI5fYoNemJDZqj/tJbXw/XEAtLaPosdOk2qgVcKS21u81UD5c=
+  file: cern-root.tar.bz2
+  skip_cleanup: true
+  overwrite: true
+  on:
+    tags: true
