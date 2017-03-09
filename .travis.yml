@@ -1,7 +1,16 @@
 language: cpp
 sudo: false
 compiler:
-  - gcc
+- gcc
 script: "./build_cmake.sh"
 os:
-  - linux
+- linux
+deploy:
+  provider: releases
+  api_key:
+    secure: Fg+jy5IeNmS2+iLDVnz5D3tUm3bzvPsTAx+l2gIKE4+RayYeNQ/opBk2pbuAcGpXW+PTYJXffYSOM/DEUR1plnPR0Xg8HlfjlndyTnutEqyLRKGd7H+atkFu0rCb11Yp+E3AGmvl0sCCK2XyV886X+8P/Bxpf4A2+SnwVD3CFklH3EjWtXMOil3CetkDyDof5ggKFsBmlAj37z6kvBlSkkNj0BAeeOErezdyNqC6IAHiIxGBjo8aPtjitdoM8TCp1JEMI7Ab2VaLvnUGgT8sNB1ubtE77tk1sfvVzrpSfSdDB+VeV7/HKFV8WpVEd8pnU3jTFjjEkFZ7woZdhOD49+kgsDj2wYzwhItnCLIdSYUiVBKb7b4ufrbCguHZOA7yo75UJQ7bAp+BJqA9f3UaFMcqkyUH2UBwIZQX+cgmKtAZ6U5bKmZFD5RRddOp52qfcMXJqfGz03IAJ+zBBhBcK3of/MCVcdhN13oG4Bshn/MSF1NuMd9D+JNYQBIr9LUjI/obLFPABa2zTcBYPWiCnmfWpkCbyzrhnnpkoKSqsJSuWFYMK3Lh+Swhcswlwi1CtVXav9UWYwzkU8nrNXGS3vyGn3YLg5ODsHwEy1VgFiyCh3MhPWmNunNlhr5xbHpSCr76mWZc1h5r1clyKPwoZPCGEdgECCiyeDztefrlTLs=
+  file: cmake.tar.bz2
+  skip_cleanup: true
+  overwrite: true
+  on:
+    tags: true
