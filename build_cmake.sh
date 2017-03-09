@@ -12,16 +12,17 @@ cd cmake-$CMAKE_VERSION
 
 # Build library
 echo "Building..."
-./bootstrap
+./bootstrap --parallel=$(nproc)
 make -j$(nproc)
-# Rearrange folders
 make -j$(nproc) package
+# Rearrange folders, as make package appends the system name,
+# we just use shell globbing
 mkdir build
-mv cmake-$CMAKE_VERSION.tar.gz build
+mv cmake-$CMAKE_VERSION-*.tar.gz build
 cd build
-tar -xzf cmake-$CMAKE_VERSION.tar.gz
-rm cmake-$CMAKE_VERSION.tar.gz
-mv cmake-$CMAKE_VERSION cmake
+tar -xzf cmake-$CMAKE_VERSION-*.tar.gz
+rm cmake-$CMAKE_VERSION-*.tar.gz
+mv cmake-$CMAKE_VERSION-* cmake
 # Tar library
 echo "Build done, tarring..."
 tar -jc --file=cmake.tar.bz2 cmake
