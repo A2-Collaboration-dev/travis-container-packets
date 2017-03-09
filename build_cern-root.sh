@@ -14,8 +14,8 @@ cmake ../cern-root-git
 echo "Building..."
 # make really outputs so much that travis aborts,
 # so convert it to dots (STDERR is still seen)
-make -j$(nproc) | awk '{printf "."}'
-make -j$(nproc) install
+make # | awk '{printf "."}'
+#make -j$(nproc) install
 # Tar library
 echo "Build done, tarring..."
 cd $BASEDIR
