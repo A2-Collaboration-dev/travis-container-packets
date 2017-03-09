@@ -1,4 +1,5 @@
 #!/bin/sh
+if [ -z "$TRAVIS_TAG" ]; then exit 0; fi
 set -e
 BASEDIR=$PWD
 # Get sources
