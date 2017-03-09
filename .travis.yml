@@ -1,0 +1,7 @@
+language: cpp
+sudo: false
+compiler:
+  - gcc
+script: "/bin/true"
+os:
+  - linux
