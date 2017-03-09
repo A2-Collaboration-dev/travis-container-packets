@@ -32,5 +32,6 @@ before_install:
 
 ### APLCON
 ```yml
+before_install:
 - source <(curl -SLs https://raw.githubusercontent.com/A2-Collaboration-dev/travis-container-packets/APLCON/setup.sh)
 ```
