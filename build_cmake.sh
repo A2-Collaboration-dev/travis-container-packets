@@ -4,7 +4,7 @@ BASEDIR=$PWD
 CMAKE_VERSION=3.1.2
 # Get sources
 echo "Getting sources..."
-wget http://www.cmake.org/files/v3.1/cmake-$CMAKE_VERSION.tar.gz
+wget --no-check-certificate http://www.cmake.org/files/v3.1/cmake-$CMAKE_VERSION.tar.gz
 echo "Untarring..."
 tar -xzf cmake-$CMAKE_VERSION.tar.gz
 rm cmake-$CMAKE_VERSION.tar.gz
