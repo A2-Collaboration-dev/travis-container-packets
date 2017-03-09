@@ -1,17 +1,10 @@
 language: cpp
 sudo: false
-notifications:
-  email: false
 compiler:
-  - gcc
-addons:
-  apt_packages: "curl"
+- gcc
 before_install:
-  - echo 'Compiling with:'
-  - $CXX --version
-  - echo 'CMake version:'
-  - cmake --version
-script: 
-  - sh build_base.sh
+- source <(curl -SLs https://raw.githubusercontent.com/A2-Collaboration-dev/travis-container-packets/gcc/setup.sh)
+- source <(curl -SLs https://raw.githubusercontent.com/A2-Collaboration-dev/travis-container-packets/cern-root/setup.sh)
+script: "./build_gsi-pluto.sh"
 os:
-  - linux
+- linux
