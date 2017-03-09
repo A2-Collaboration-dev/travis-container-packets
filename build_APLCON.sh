@@ -16,6 +16,5 @@ make -j$(nproc)
 echo "Build done, tarring..."
 cd $BASEDIR
 tar -jc --file=APLCON.tar.bz2 APLCON
-echo "########################################################################"
-echo "Created tarball $BASEDIR/APLCON.tar.bz2"
-echo "########################################################################"
+echo "Created tarball:"
+ls -lah APLCON.tar.bz2
