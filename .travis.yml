@@ -8,6 +8,10 @@ addons:
     packages:  
     - liblzma-dev
     - libgsl0-dev
+    - libx11-dev
+    - libxpm-dev
+    - libxft-dev
+    - libxext-dev
 os:
   - linux
 #deploy:
