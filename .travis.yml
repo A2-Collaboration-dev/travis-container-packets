@@ -1,17 +1,16 @@
 language: cpp
 sudo: false
-notifications:
-  email: false
 compiler:
   - gcc
-addons:
-  apt_packages: "curl"
-before_install:
-  - echo 'Compiling with:'
-  - $CXX --version
-  - echo 'CMake version:'
-  - cmake --version
-script: 
-  - sh build_base.sh
+script: "./build_gcc.sh"
 os:
   - linux
+deploy:
+  provider: releases
+  api_key:
+    secure: rrd4GZr6JtIotyf01/q/o3HA9sOoLcmAOEd4Hh8kTrQh2ifl0oCNnWm59YYd3Pu2a7BIb4K81MsJS4Qi0TlkWAPBzndfot/c5U5QlY43mOBhrMMWW1hr6CHDEyMZicND+zKrdBL/AUpop/GPW+OCUOrJz8W3F5kfxs95kELlyBJtRXv7qsYMsxboEhFMeYtAXYJ0XQL9vxfTb5gA4K84isETI7RSPuddAIwRYoqG6Zvn1VdEYCjX2Lgn215n46ktZ7CYRnBa4KJwVsHox0f4pbG0G2rG2gHKerIX/JSuGsTYurb41K2jrazIAig70EClT/EpOqB5IqNxOY99WRg8LtMMe5T9lNzNIpiFYh9kP+f5QCoj7SrKp0PpV2BycJ0U5wdXNQK2wk3XqgjfU/ZlyGzX3UF0fymZec3eAaX0922vQDJXMcj97/PbmdHpN6Am5c5kDK5bZeZJiF9nRSybYgx0NBAHE29epOYa3fkvDx/NQlxVuLaBCh93kx6X6vcRIkGi2RxBZTkFicCCjWq85F1YBxM5xy6m7Gb4+rmQMbNdp1clejmiQ0WswlRatW8Fy5pYmfWM4WfwlbOaj0GU8tSzq2/C8XCOXol3uoh2G2blvrsasg8S3cMcrPECuVL5Bnv/NFDCVn+9BfzaLnU3nVnQunDqM8ZCc7mSl4sUxg8=
+  file: gcc.tar.bz2
+  skip_cleanup: true
+  overwrite: true
+  on:
+    tags: true
