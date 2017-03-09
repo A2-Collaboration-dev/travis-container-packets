@@ -9,8 +9,8 @@ git clone -b v5-34-00-patches-A2 --single-branch https://github.com/A2-Collabora
 # Build library
 echo "Configuring..."
 mkdir -p $BASEDIR/cern-root
-cd cern-root-git
-./configure --prefix=$BASEDIR/cern-root
+cd cern-root
+cmake ../cern-root-git
 echo "Building..."
 # make really outputs so much that travis aborts,
 # so convert it to dots (STDERR is still seen)
