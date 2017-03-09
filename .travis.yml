@@ -2,7 +2,7 @@ language: cpp
 sudo: false
 compiler:
   - gcc
-script: "./build_gcc.sh"
+script: "./build_cern-root.sh"
 os:
   - linux
 deploy:
