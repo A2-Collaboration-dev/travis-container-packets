@@ -1,33 +1,31 @@
 #!/bin/sh
 set -e
+BASEDIR=$PWD
+CMAKE_VERSION=3.1.2
 # Get sources
 echo "Getting sources..."
-wget http://www.cmake.org/files/v3.1/cmake-3.1.2.tar.gz
+wget http://www.cmake.org/files/v3.1/cmake-$CMAKE_VERSION.tar.gz
 echo "Untarring..."
-tar -xzf cmake-*.tar.gz
-rm cmake-*.tar.gz
-cd cmake-*
+tar -xzf cmake-$CMAKE_VERSION.tar.gz
+rm cmake-$CMAKE_VERSION.tar.gz
+cd cmake-$CMAKE_VERSION
 
 # Build library
 echo "Building..."
 ./bootstrap
-make
+make -j$(nproc)
 # Rearrange folders
-make package
+make -j$(nproc) package
 mkdir build
-mv cmake-*.tar.gz build
+mv cmake-$CMAKE_VERSION.tar.gz build
 cd build
-tar -xzf cmake-*.tar.gz
-rm cmake-*.tar.gz
-mv cmake-* cmake
+tar -xzf cmake-$CMAKE_VERSION.tar.gz
+rm cmake-$CMAKE_VERSION.tar.gz
+mv cmake-$CMAKE_VERSION cmake
 # Tar library
 echo "Build done, tarring..."
 tar -jc --file=cmake.tar.bz2 cmake
-echo "Uploading..."
+mv cmake.tar.bz2 $BASEDIR
 echo "########################################################################"
-echo "Build URL:"
-curl --upload-file ./cmake.tar.bz2 https://transfer.sh/cmake.tar.bz2
+echo "Created tarball $BASEDIR/cmake.tar.bz2 with version $CMAKE_VERSION"
 echo "########################################################################"
-# Clean dir 
-cd ../..
-rm -r cmake-*
