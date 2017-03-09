@@ -8,3 +8,12 @@ before_install:
 script: "./build_gsi-pluto.sh"
 os:
 - linux
+deploy:
+  provider: releases
+  api_key:
+    secure: vcq2l0J1w/gFFk2dhEHCD/yY1/a2Pt3qmjFX3O6ZHqh0W/UX7GpLSksGwKSJFPyYZiPtE+qWltUiwlCQuJuFvTOnS5RMpoITXNg1BcELLrAHxZM3LIVBqHirsgwjicTg8sH0oHXg5e9vy0Fh5Z6OgvGTcKNwJ5Ojer/ueymWZIlYxnBsqzNjNn75EVgJ0ykDU91Lk6EWmRKfJuuIw7aMvlyOi3ugyPOkj1gI8h1oQqVV7RHVnhY2uaxWrSqQs2u3+jBgcfbjDPQ4O2hVhwsLgNwPgUQh8a324zaqr0H41GQxLvzrzdmmLe2cMbBk77zd6M1D39dlH8aQWqQOH1WhxrOE1NVyeeQZgIulUT6Eb9LK3sCiexRt9kdqGy6elNFkdrkkoupaAz3LAIUzWJSe773PkPyMjl9au0iQLkCh8uIpDx9NTXvyfxQpXLt+2F3YC1sv8B/Q7D9ncAwVUZHpLCUzH+EesOSgKaUJ1GkAXTeq+ILUjXt+z4EVcXNwt8tNuTE6ZqUMDYP7EaoBF63xKB7ErSnsxF1THW8ET8Ursxg0g7RyQpeCk6N3D8OsHEvD/WRJ9QmtvN/c/LsSlO+usRNBHsfk1+m0WMgfoqWNSXuq/NO5Rn22HEXHuM1K+CUH010IQaBNoIIbxEdiP6iyQauDr9FZqMpOTWIgwYs5eqo=
+  file: gsi-pluto.tar.bz2
+  skip_cleanup: true
+  overwrite: true
+  on:
+    tags: true
