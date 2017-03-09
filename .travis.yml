@@ -11,6 +11,11 @@ before_install:
   - if [ "$CXX" == "g++" ]; then export LIBRARY_PATH=$(pwd)/gcc/lib64:$LIBRARY_PATH; fi
   - if [ "$CXX" == "g++" ]; then export LD_LIBRARY_PATH=$(pwd)/gcc/lib64:$LD_LIBRARY_PATH; fi
   - if [ "$CXX" == "g++" ]; then export CPLUS_INCLUDE_PATH=$(pwd)/gcc/include/c++/4.9.2:$CPLUS_INCLUDE_PATH; fi
-script: "./build_aplcon.sh"
+  # Get CMake 3.1
+  - wget https://github.com/A2-Collaboration-dev/travis-container-packets/releases/download/cmake-3.1.2/cmake.tar.bz2
+  - tar -xjf cmake.tar.bz2
+  - rm cmake.tar.bz2
+  - export PATH=$(pwd)/cmake/bin:$PATH
+script: "./build_APLCON.sh"
 os:
   - linux
