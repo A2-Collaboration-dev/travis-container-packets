@@ -1,12 +1,19 @@
 language: cpp
 sudo: false
 compiler:
-  - gcc
+- gcc
 before_install:
-  # Get GCC 4.9.2
-  - source <(curl -SLs https://raw.githubusercontent.com/A2-Collaboration-dev/travis-container-packets/gcc/setup.sh)
-  # Get CMake 3.1
-  - source <(curl -SLs https://raw.githubusercontent.com/A2-Collaboration-dev/travis-container-packets/cmake/setup.sh)
+- source <(curl -SLs https://raw.githubusercontent.com/A2-Collaboration-dev/travis-container-packets/gcc/setup.sh)
+- source <(curl -SLs https://raw.githubusercontent.com/A2-Collaboration-dev/travis-container-packets/cmake/setup.sh)
 script: "./build_APLCON.sh"
 os:
-  - linux
+- linux
+deploy:
+  provider: releases
+  api_key:
+    secure: nvP2r8nMwL8wxYyDuZ2v6Sf5xbnH4UCYxb6MB6Ac1wc+LOHfF1zDwbC83eQczQvewGDs5PfEd1nIYfqV7yDAhMsK7pG9KE0Rv2ILxD2QEsuEyHdNaXq6A1FrjPa+ERLnBtIdItvSDXJJQto2U+s2rFys62eekNNy4d5ny8VIdQ0HhTGysUr805V8rq6ct8CzfUGjYTYRYkoJzHjJHK5WKvVv3CJ/Q+ZvL+2YOyLacm0LhNT3xaqN/hAAfezQxN8HGLjE9y0zGaupOddNLQRBWG2V6dctvVFoTcDwldyyJff+Hhp7POzHEZ88c8eGnTH2Z9cb4I8O8m6rSpbPdOTvSrbVFQVmqokEHfMzWTKNpFyEwwP94eNQN1U9a+rvr9GqRfHZQn7gycV2nYpaenDofnUNkwKU/B+ogK8zKNpjSJgkY7s0SO/VL5pZrmbqcvrP8VVSQNFmiJpt5Ig5LBjXNKb++OLdIQixxL2MeUroJ0AQwsWwa9vB8ZoXRjY0Rqjg8nn5MFFeT/A7baKRR7lN1PV0EKo7wAru+6d76eZVQTcb7s8ImdDFOypWggi/H5S6V//bNxx74BCckURZsjeb/o33yNkNe2r2az/aOrR5VucUD2/C5/gYWopBPWUPvk6TLvbMaJ+bgYHDZVhbq+MXKyZzSbjyscJk9Bd3DOyI9RY=
+  file: APLCON.tar.bz2
+  skip_cleanup: true
+  overwrite: true
+  on:
+    tags: true
