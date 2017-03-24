@@ -5,17 +5,17 @@ BASEDIR=$PWD
 echo "Number of processors: $(nproc)"
 # Get sources
 echo "Getting sources..."
-git clone https://github.com/A2-Collaboration-dev/APLCON.git
+git clone https://github.com/A2-Collaboration-dev/APLCONpp.git
 
 # Build library
 echo "Configuring..."
-cd APLCON && mkdir build && cd build
+cd APLCONpp && mkdir build && cd build
 cmake ..
 echo "Building..."
 make -j$(nproc)
 # Tar library
 echo "Build done, tarring..."
 cd $BASEDIR
-tar -jc --file=APLCON.tar.bz2 APLCON
+tar -jc --file=APLCONpp.tar.bz2 APLCONpp
 echo "Created tarball:"
-ls -lah APLCON.tar.bz2
+ls -lah APLCONpp.tar.bz2
