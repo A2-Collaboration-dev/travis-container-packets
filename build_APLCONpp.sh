@@ -2,7 +2,6 @@
 if [ -z "$TRAVIS_TAG" ]; then exit 0; fi
 set -e
 BASEDIR=$PWD
-echo "Number of processors: $(nproc)"
 # Get sources
 echo "Getting sources..."
 git clone https://github.com/A2-Collaboration-dev/APLCONpp.git
@@ -12,7 +11,7 @@ echo "Configuring..."
 cd APLCONpp && mkdir build && cd build
 cmake ..
 echo "Building..."
-make -j$(nproc)
+make -j2
 # Tar library
 echo "Build done, tarring..."
 cd $BASEDIR
