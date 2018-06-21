@@ -3,8 +3,8 @@ sudo: false
 compiler:
 - gcc
 before_install:
-- source <(curl -SLs https://raw.githubusercontent.com/A2-Collaboration-dev/travis-container-packets/cmake/setup.sh)
-- source <(curl -SLs https://raw.githubusercontent.com/A2-Collaboration-dev/travis-container-packets/gcc/setup.sh)
+- source <(curl -SLs https://raw.githubusercontent.com/A2-Collaboration/travis-container-packets/cmake/setup.sh)
+- source <(curl -SLs https://raw.githubusercontent.com/A2-Collaboration/travis-container-packets/gcc/setup.sh)
 script: "./build_cern-root.sh"
 addons:
   apt:
