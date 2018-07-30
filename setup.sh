@@ -2,7 +2,7 @@
 if [[ ! -z "$CXX" && "$CXX" != "g++" ]]; then
     return
 fi
-wget https://github.com/A2-Collaboration/travis-container-packets/releases/download/gcc-4.9.2/gcc.tar.bz2
+wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 --tries=3 https://github.com/A2-Collaboration/travis-container-packets/releases/download/gcc-4.9.2/gcc.tar.bz2
 tar -xjf gcc.tar.bz2
 rm gcc.tar.bz2
 export PATH=$(pwd)/gcc/bin:$PATH
