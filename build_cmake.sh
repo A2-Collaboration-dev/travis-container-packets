@@ -2,10 +2,10 @@
 if [ -z "$TRAVIS_TAG" ]; then exit 0; fi
 set -e
 BASEDIR=$PWD
-CMAKE_VERSION=3.1.2
+CMAKE_VERSION=3.13.1
 # Get sources
 echo "Getting sources..."
-wget --no-check-certificate http://www.cmake.org/files/v3.1/cmake-$CMAKE_VERSION.tar.gz
+wget --no-check-certificate http://www.cmake.org/files/v3.13/cmake-$CMAKE_VERSION.tar.gz
 echo "Untarring..."
 tar -xzf cmake-$CMAKE_VERSION.tar.gz
 rm cmake-$CMAKE_VERSION.tar.gz
