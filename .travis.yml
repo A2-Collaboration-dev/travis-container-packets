@@ -3,6 +3,7 @@ sudo: false
 compiler:
 - gcc
 before_install:
+- pip install --user numpy
 - source <(curl -SLs https://raw.githubusercontent.com/A2-Collaboration/travis-container-packets/cmake/setup_3.13.sh)
 - source <(curl -SLs https://raw.githubusercontent.com/A2-Collaboration/travis-container-packets/gcc/setup_8.2.sh)
 script: "./build_cern-root.sh"
