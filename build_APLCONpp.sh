@@ -15,6 +15,6 @@ make -j2
 # Tar library
 echo "Build done, tarring..."
 cd $BASEDIR
-tar -jc --file=APLCONpp.tar.bz2 APLCONpp
+tar Jc --file=APLCONpp.tar.xz APLCONpp
 echo "Created tarball:"
-ls -lah APLCONpp.tar.bz2
+ls -lah APLCONpp.tar.xz

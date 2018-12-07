@@ -3,8 +3,8 @@ sudo: false
 compiler:
 - gcc
 before_install:
-- source <(curl -SLs https://raw.githubusercontent.com/A2-Collaboration/travis-container-packets/gcc/setup.sh)
-- source <(curl -SLs https://raw.githubusercontent.com/A2-Collaboration/travis-container-packets/cmake/setup.sh)
+- source <(curl -SLs https://raw.githubusercontent.com/A2-Collaboration/travis-container-packets/gcc/setup_8.2.sh)
+- source <(curl -SLs https://raw.githubusercontent.com/A2-Collaboration/travis-container-packets/cmake/setup_3.13.sh)
 script: "./build_APLCONpp.sh"
 os:
 - linux
@@ -12,7 +12,7 @@ deploy:
   provider: releases
   api_key:
     secure: "qHowsNkPXbNIxUB/7F3uKciLiC8hlhx9xWLuFqXlyu+pOLZYv2uYc134ihbeFiD99ow6vo/q8gqG2Gzsuu9++08YGFT7tv9WWOXDD8/qqZcnpO+JPMjBTGw52WFXmA+xmiOkA7F+xoL5d8Pwy7MWB6ZFU79Yj7uS/WrjAV02x/aVwICAOsNcGx222jX2zpyW3Fq0Mhzfgl56IHBbfFWlupVD1VVmgCe9Qdd+fjApUFyWPPXYT7ukZOs3bvQZ4WZ5p9gyQxJfdmUs2oerdzy7xjjYuh6e2MDR72ddmpX4HmhZiBtxxGV63kIcjmhbg0dVExsPoR/M7UAyBogDeN6tFvczE9e2zUa0Vc2GD7bumMqW8r5LQcQ8mTWGM/rrq9jecJUmZFFgUMXvlzg2PMdiM0+uv7Aj9M6fHMPJg7eqYxLHmNSH5qkTYBdmHqWnpQR6dhcZhkdbank1OMEoSwH3bdVn6nvwv9IOFK0Ei0ojSxmMNiRtVt0YxDEyf4RdBAnpE4qlbFwicoNgtjAra5n7RmnVeNvloLB7HYzAFpgvJYowZSyLzWd9qf3GFEtub9gMP7wZUDW0Ncn4BSZ8674s5v20oSQg53lNVRU3i+ukADPNsCzUJM5e+Txv31Z6Q50NZcGm4nktznKOlEcRbVJbrGflX+z9QuaARphPojOGehQ="
-  file: APLCONpp.tar.bz2
+  file: APLCONpp.tar.xz
   skip_cleanup: true
   overwrite: true
   on:
