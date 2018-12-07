@@ -8,9 +8,9 @@ export CC=gcc
 export CXX=g++
 # Get sources
 echo "Getting sources..."
-git clone -b v6-14-00-patches --single-branch http://github.com/root-project/root.git cern-root-git
+git clone -b v6-10-00-patches --single-branch http://github.com/root-project/root.git cern-root-git
 cd cern-root-git
-git checkout -b v6-14-06 v6-14-06
+git checkout -b v6-10-08 v6-10-08
 cd ..
 
 # Build library
