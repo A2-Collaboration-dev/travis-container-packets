@@ -3,6 +3,9 @@ if [ -z "$TRAVIS_TAG" ]; then exit 0; fi
 set -e
 BASEDIR=$PWD
 echo "Number of processors: $(nproc)"
+# make sure the correct compiler is used (locally installed 4.8.4 one is used instead)
+export CC=gcc
+export CXX=g++
 # Get sources
 echo "Getting sources..."
 git clone -b v6-14-00-patches --single-branch http://github.com/root-project/root.git cern-root-git
