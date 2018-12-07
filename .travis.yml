@@ -3,16 +3,17 @@ sudo: false
 compiler:
 - gcc
 before_install:
-- source <(curl -SLs https://raw.githubusercontent.com/A2-Collaboration/travis-container-packets/gcc/setup.sh)
-- source <(curl -SLs https://raw.githubusercontent.com/A2-Collaboration/travis-container-packets/cern-root/setup.sh)
-script: "./build_gsi-pluto.sh"
+- source <(curl -SLs https://raw.githubusercontent.com/A2-Collaboration/travis-container-packets/cmake/setup_3.13.sh)
+- source <(curl -SLs https://raw.githubusercontent.com/A2-Collaboration/travis-container-packets/gcc/setup_8.2.sh)
+- source <(curl -SLs https://raw.githubusercontent.com/A2-Collaboration/travis-container-packets/cern-root6/setup.sh)
+script: "./build_pluto6.sh"
 os:
 - linux
 deploy:
   provider: releases
   api_key:
-    secure: Sn01rg53kGdiWxaZRdbR8IbtTs2EhIkYDQlx7etmEdEm7vecjwyN5aFWy006UywcPJwTGToqnQ+FUvtK6ri2vzG/vowhPrSnUmHkcjYwoRqEjxRIm1hUaWkEFFj3BAxVEhoOr5z5zoJXnlUApJy/qr+QAc8P4rW1mTiJJNTKHsoiar1EgwOkBS3rA5ar0B3tEwUvKlU6TzeuLO8qJEI+T3akoCyloonQQ3Klhr9mfMk0ImmK74FEXMj3pYQet1SUusC86LlKNDOZiwXeT16ZY59odNPZDajouqXAD83lpRCCRPc2lkEj7lap3/SRr5c7uhTnGqjo1oJTZJuozoMpLUFDaKlUdppPMCGsdnHo2C1w12Bf+NqvU7V/GCLfoqqizQyPBRjiTy8tvLcnO3Jniw+Gj5EzC092byOtowJ/VqpnOhzz+IvCoaoLLOUo25VMJpqCGSZmBk9kKhYd2uTOXTyDqixH8DXU4pvbiWwTpD8NgHwyyA+vwN+Nvo1DSmSqz7m56QkudGf9xQ9VkzcXokOe0LMQ+Ipw5WM8mpN3iSGnPrOkfUgUhb5+UHpoIDtBBH2cbMYgEurVDI+te2XNvfbfhE68vfg04ev/5pgjGQexFkyC2lnXgTCGt4J0WDiLw7Meggl4wovG3A4+/kBqQRuQnCmgkw/xAbADo27kbhg=
-  file: gsi-pluto.tar.bz2
+    secure: "qHowsNkPXbNIxUB/7F3uKciLiC8hlhx9xWLuFqXlyu+pOLZYv2uYc134ihbeFiD99ow6vo/q8gqG2Gzsuu9++08YGFT7tv9WWOXDD8/qqZcnpO+JPMjBTGw52WFXmA+xmiOkA7F+xoL5d8Pwy7MWB6ZFU79Yj7uS/WrjAV02x/aVwICAOsNcGx222jX2zpyW3Fq0Mhzfgl56IHBbfFWlupVD1VVmgCe9Qdd+fjApUFyWPPXYT7ukZOs3bvQZ4WZ5p9gyQxJfdmUs2oerdzy7xjjYuh6e2MDR72ddmpX4HmhZiBtxxGV63kIcjmhbg0dVExsPoR/M7UAyBogDeN6tFvczE9e2zUa0Vc2GD7bumMqW8r5LQcQ8mTWGM/rrq9jecJUmZFFgUMXvlzg2PMdiM0+uv7Aj9M6fHMPJg7eqYxLHmNSH5qkTYBdmHqWnpQR6dhcZhkdbank1OMEoSwH3bdVn6nvwv9IOFK0Ei0ojSxmMNiRtVt0YxDEyf4RdBAnpE4qlbFwicoNgtjAra5n7RmnVeNvloLB7HYzAFpgvJYowZSyLzWd9qf3GFEtub9gMP7wZUDW0Ncn4BSZ8674s5v20oSQg53lNVRU3i+ukADPNsCzUJM5e+Txv31Z6Q50NZcGm4nktznKOlEcRbVJbrGflX+z9QuaARphPojOGehQ="
+  file: pluto6.tar.xz
   skip_cleanup: true
   overwrite: true
   on:

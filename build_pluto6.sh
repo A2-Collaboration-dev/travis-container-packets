@@ -4,15 +4,18 @@ set -e
 BASEDIR=$PWD
 # Get sources
 echo "Getting sources..."
-git clone https://github.com/A2-Collaboration/gsi-pluto.git
+git clone https://github.com/A2-Collaboration/pluto6.git
 
 # Build library
 echo "Building..."
-cd gsi-pluto 
+cd pluto6
+mkdir build
+cd build
+cmake ..
 make -j2
 # Tar library
 echo "Build done, tarring..."
 cd $BASEDIR
-tar -jc --file=gsi-pluto.tar.bz2 gsi-pluto
+tar Jc --file=pluto6.tar.xz pluto6
 echo "Created tarball:"
-ls -lah gsi-pluto.tar.bz2
+ls -lah pluto6.tar.xz
